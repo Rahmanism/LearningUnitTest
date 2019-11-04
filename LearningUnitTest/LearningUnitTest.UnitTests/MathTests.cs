@@ -18,6 +18,7 @@ namespace LearningUnitTest.UnitTests
         }
 
         [Test]
+        // [Ignore("Just for learning IGNORE!")]
         public void Add_WhenCalled_ReturnsSumOfArguments()
         {
             // Arrange - is in SetUP
