@@ -16,53 +16,29 @@ namespace LearningUnitTest.UnitTests
         {
             math = new Math();
         }
-        
+
         [Test]
-        public void Add_WhenCalled_ReturnSumOfArguments()
+        public void Add_WhenCalled_ReturnsSumOfArguments()
         {
             // Arrange - is in SetUP
-            
+
             // Act
             var result = math.Add( 1, 2 );
-            
+
             // Assert
             Assert.That( result, Is.EqualTo( 3 ) );
         }
 
         [Test]
-        public void Max_FirstArgIsGreater_ReturnsFistArgument()
+        [TestCase( 2, 1, 2 )]
+        [TestCase( 1, 2, 2 )]
+        [TestCase( 1, 1, 1 )]
+        public void Max_WhenCalled_ReturnsTheGreaterArgument(
+            int a, int b, int expectedResult )
         {
-            // Arrange - is in SetUP
+            var result = math.Max( a, b );
 
-            // Act
-            var result = math.Max( 2, 1 );
-            
-            // Assert
-            Assert.That( result, Is.EqualTo( 2 ) );
-        }
-
-        [Test]
-        public void Max_SecondArgIsGreater_ReturnsSecondArgument()
-        {
-            // Arrange - is in SetUP
-
-            // Act
-            var result = math.Max( 1, 2 );
-            
-            // Assert
-            Assert.That( result, Is.EqualTo( 2 ) );
-        }
-
-        [Test]
-        public void Max_ArgsAreEqual_ReturnsTheSameArgument()
-        {
-            // Arrange - is in SetUP
-            
-            // Act
-            var result = math.Max( 1, 1 );
-            
-            // Assert
-            Assert.That( result, Is.EqualTo( 1 ) );
+            Assert.That( result, Is.EqualTo( expectedResult ) );
         }
     }
 }
