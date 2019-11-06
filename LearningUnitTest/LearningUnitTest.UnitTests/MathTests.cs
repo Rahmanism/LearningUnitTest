@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using LearningUnitTest.Fundamentals;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 
 namespace LearningUnitTest.UnitTests
 {
@@ -61,6 +62,16 @@ namespace LearningUnitTest.UnitTests
             // if we want ordered or unique arrays
             // Assert.That(result, Is.Ordered);
             // Assert.That(result, Is.Unique);
+        }
+
+        [Test]
+        [TestCase(0)]
+        [TestCase(-1)]
+        public void GetOddNumbers_LimitIsZeroOrLess_ReturnsEmpty(int limit)
+        {
+            var result = math.GetOddNumbers(limit);
+            
+            Assert.That(result, Is.Empty);
         }
     }
 }
