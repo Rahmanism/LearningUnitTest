@@ -1,4 +1,5 @@
-﻿using LearningUnitTest.Fundamentals;
+﻿using System;
+using LearningUnitTest.Fundamentals;
 using NUnit.Framework;
 
 namespace LearningUnitTest.UnitTests
@@ -27,9 +28,20 @@ namespace LearningUnitTest.UnitTests
         [TestCase(null)]
         [TestCase("")]
         [TestCase(" ")]
-        public void Log_InvalidInput_ThrowArgumentNullException(string error)
+        public void Log_InvalidError_ThrowArgumentNullException(string error)
         {
             Assert.That(() => _logger.Log(error), Throws.ArgumentNullException);
+        }
+
+        [Test]
+        public void Log_ValidError_RaiseErrorLoggedEvent()
+        {
+            var id = Guid.Empty;
+            _logger.ErrorLogged += (sender, args) => { id = args; };
+            
+            _logger.Log("a");
+            
+            Assert.That(id, Is.Not.EqualTo(Guid.Empty));
         }
     }
 }
