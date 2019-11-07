@@ -1,14 +1,13 @@
 ﻿using System.Linq;
 using LearningUnitTest.Fundamentals;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
 
-namespace LearningUnitTest.UnitTests
+namespace LearningUnitTest.UnitTests.Fundamentals
 {
     [TestFixture]
     public class MathTests
     {
-        private Math math;
+        private Math _math;
 
         /// <summary>
         /// Will run before every test.
@@ -16,17 +15,17 @@ namespace LearningUnitTest.UnitTests
         [SetUp]
         public void SetUp()
         {
-            math = new Math();
+            _math = new Math();
         }
 
         [Test]
         // [Ignore("Just for learning IGNORE!")]
-        public void Add_WhenCalled_ReturnsSumOfArguments()
+        public void Add_WhenCalled_ReturnSumOfArguments()
         {
             // Arrange - is in SetUP
 
             // Act
-            var result = math.Add(1, 2);
+            var result = _math.Add(1, 2);
 
             // Assert
             Assert.That(result, Is.EqualTo(3));
@@ -36,18 +35,18 @@ namespace LearningUnitTest.UnitTests
         [TestCase(2, 1, 2)]
         [TestCase(1, 2, 2)]
         [TestCase(1, 1, 1)]
-        public void Max_WhenCalled_ReturnsTheGreaterArgument(
+        public void Max_WhenCalled_ReturnTheGreaterArgument(
             int a, int b, int expectedResult)
         {
-            var result = math.Max(a, b);
+            var result = _math.Max(a, b);
 
             Assert.That(result, Is.EqualTo(expectedResult));
         }
 
         [Test]
-        public void GetOddNumbers_LimitIsGreaterThanZero_ReturnsOddNumbersUpToLimit()
+        public void GetOddNumbers_LimitIsGreaterThanZero_ReturnOddNumbersUpToLimit()
         {
-            var result = math.GetOddNumbers(5);
+            var result = _math.GetOddNumbers(5);
 
             // very general test - bad
             Assert.That(result, Is.Not.Empty);
@@ -67,9 +66,9 @@ namespace LearningUnitTest.UnitTests
         [Test]
         [TestCase(0)]
         [TestCase(-1)]
-        public void GetOddNumbers_LimitIsZeroOrLess_ReturnsEmpty(int limit)
+        public void GetOddNumbers_LimitIsZeroOrLess_ReturnEmpty(int limit)
         {
-            var result = math.GetOddNumbers(limit);
+            var result = _math.GetOddNumbers(limit);
             
             Assert.That(result, Is.Empty);
         }

@@ -1,13 +1,13 @@
 using LearningUnitTest.Fundamentals;
 using NUnit.Framework;
 
-namespace LearningUnitTest.UnitTests
+namespace LearningUnitTest.UnitTests.Fundamentals
 {
     [TestFixture]
     public class ReservationTests
     {
         [Test]
-        public void CanBeCancelledBy_AdminCancelling_ReturnsTrue()
+        public void CanBeCancelledBy_AdminCancelling_ReturnTrue()
         {
             // Arrange
             var reservation = new Reservation();
@@ -21,7 +21,7 @@ namespace LearningUnitTest.UnitTests
         }
 
         [Test]
-        public void CanBeCancelledBy_SameUserCancelling_ReturnsTrue()
+        public void CanBeCancelledBy_SameUserCancelling_ReturnTrue()
         {
             // Arrange
             var reservation = new Reservation();
@@ -36,7 +36,7 @@ namespace LearningUnitTest.UnitTests
         }
 
         [Test]
-        public void CanBeCancelledBy_AnotherUserCancelling_ReturnsFalse()
+        public void CanBeCancelledBy_AnotherUserCancelling_ReturnFalse()
         {
             // Arrange
             var reservation = new Reservation();

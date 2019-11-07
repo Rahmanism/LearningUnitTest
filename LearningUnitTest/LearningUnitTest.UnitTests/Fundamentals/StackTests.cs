@@ -1,19 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using LearningUnitTest.Fundamentals;
 using NUnit.Framework;
 
-namespace LearningUnitTest.UnitTests
+namespace LearningUnitTest.UnitTests.Fundamentals
 {
     [TestFixture]
     public class StackTests
     {
-        private Fundamentals.Stack<string> _stack;
+        private Stack<string> _stack;
 
         [SetUp]
         public void SetUp()
         {
-            _stack = new Fundamentals.Stack<string>();
+            _stack = new Stack<string>();
         }
 
         [Test]

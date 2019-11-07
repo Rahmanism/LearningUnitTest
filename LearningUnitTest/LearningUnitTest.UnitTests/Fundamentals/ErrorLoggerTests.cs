@@ -2,7 +2,7 @@
 using LearningUnitTest.Fundamentals;
 using NUnit.Framework;
 
-namespace LearningUnitTest.UnitTests
+namespace LearningUnitTest.UnitTests.Fundamentals
 {
     [TestFixture]
     public class ErrorLoggerTests

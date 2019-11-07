@@ -1,7 +1,7 @@
 ﻿using LearningUnitTest.Fundamentals;
 using NUnit.Framework;
 
-namespace LearningUnitTest.UnitTests
+namespace LearningUnitTest.UnitTests.Fundamentals
 {
     [TestFixture]
     public class CustomerControllerTests
@@ -15,7 +15,7 @@ namespace LearningUnitTest.UnitTests
         }
         
         [Test]
-        public void GetCustomer_IdIsZero_ReturnsNotFound()
+        public void GetCustomer_IdIsZero_ReturnNotFound()
         {
             var result = _controller.GetCustomer(0);
 
@@ -27,7 +27,7 @@ namespace LearningUnitTest.UnitTests
         }
 
         [Test]
-        public void GetCustomer_IdIsNotZero_ReturnsOk()
+        public void GetCustomer_IdIsNotZero_ReturnOk()
         {
             var result = _controller.GetCustomer(1);
             
