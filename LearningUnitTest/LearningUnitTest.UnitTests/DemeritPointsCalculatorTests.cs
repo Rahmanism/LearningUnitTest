@@ -16,7 +16,7 @@ namespace LearningUnitTest.UnitTests
         }
         
         [Test]
-        public void CalculateDemeritPoints_InvalidArgument_ThrowArgumentOutOfRangeException()
+        public void CalculateDemeritPoints_SpeedIsNegative_ThrowArgumentOutOfRangeException()
         {
             Assert.Throws<ArgumentOutOfRangeException>(
                 () => _demerit.CalculateDemeritPoints(-1));
@@ -24,8 +24,10 @@ namespace LearningUnitTest.UnitTests
 
         [Test]
         [TestCase(65, 0)]
+        [TestCase(66, 0)]
+        [TestCase(70, 1)]
         [TestCase(85, 4)]
-        public void CalculateDemeritPoints_ValidArgument_ReturnDemeritPoints(
+        public void CalculateDemeritPoints_SpeedIsNotNegative_ReturnDemeritPoints(
             int speed, int expectedDemeritPoints)
         {
             var result = _demerit.CalculateDemeritPoints(speed);
