@@ -1,6 +1,6 @@
 ﻿using LearningUnitTest.Mocking;
 
-namespace LearningUnitTest.UnitTests
+namespace LearningUnitTest.UnitTests.Mocking
 {
     public class FakeFileReader : IFileReader
     {
