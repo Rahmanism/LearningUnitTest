@@ -12,11 +12,11 @@ namespace LearningUnitTest.Mocking
     {
         private readonly IFileReader _fileReader;
 
-        public VideoService(IFileReader fileReader)
+        public VideoService(IFileReader fileReader = null)
         {
-            _fileReader = fileReader;
+            _fileReader = fileReader ?? new FileReader();
         }
-        
+  
         public string ReadVideoTitle()
         {
             var str = _fileReader.Read("video.txt");
